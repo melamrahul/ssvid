@@ -5,6 +5,15 @@ import hashlib
 import os
 from flask import Flask, jsonify
 
+import sys
+print(f"[STARTUP] Python {sys.version}", flush=True)
+
+try:
+    import cloudscraper
+    print("[STARTUP] cloudscraper OK", flush=True)
+except Exception as e:
+    print(f"[STARTUP] cloudscraper FAILED: {e}", flush=True)
+
 app = Flask(__name__)
 TARGET = "https://embed.dlsrv.online"
 
